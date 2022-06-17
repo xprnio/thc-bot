@@ -1,13 +1,11 @@
-import useAuthentication from '../../hooks/api/useAuthentication';
+import { ChatBoxLocation, ChatLayout } from './MainView.styled';
+const MainView = () => 
+    <ChatLayout>
+      <h1>test</h1>
+      <ChatBoxLocation>
+        chat box here
+      </ChatBoxLocation>
+    </ChatLayout>
+;
 
-export default function () {
-  const { user, isAuthenticated, authenticate } = useAuthentication();
-
-  if (!isAuthenticated) {
-    return (
-      <h1>Not Authenticated</h1>
-    );
-  }
-
-  return <h1>Hello</h1>
-}
+export default MainView;
