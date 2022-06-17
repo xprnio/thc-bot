@@ -1,7 +1,9 @@
-import { ChatBoxLocation, ChatLayout } from './MainView.styled';
+import { ChatBoxLocation, ChatLayout, ChatTextsArea } from './MainView.styled';
 const MainView = () => 
     <ChatLayout>
-      <h1>test</h1>
+      <ChatTextsArea>
+        Here goes text bubbles
+      </ChatTextsArea>
       <ChatBoxLocation>
         chat box here
       </ChatBoxLocation>
