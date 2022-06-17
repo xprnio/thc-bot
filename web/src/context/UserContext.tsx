@@ -7,7 +7,7 @@ type UserContext = {
 };
 const DEFAULT_CONTEXT: UserContext = {
   user: null,
-  isAuthenticated: false,
+  isAuthenticated: true,
 };
 
 export const UserContext = React.createContext<ContextType<UserContext>>([
