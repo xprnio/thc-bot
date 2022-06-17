@@ -1,7 +1,6 @@
 import { ChatBoxLocation, ChatLayout, ChatTextsArea } from './MainView.styled';
-import isAuthenticated from '../../hooks/api/useAuthentication'
-import Navigation from '../../components/Navigation/Navigation';
 import ChatBubble from '../../components/ChatBubble/ChatBubble';
+import { TextArea } from '../../components/TextArea/TextArea.Styled';
 
 const dummy = [
   {text: 'dqwiepqwoie', time: '11:00', name: 'sergei'},
@@ -17,20 +16,18 @@ const MainView = () =>
         {
           dummy.map((item, index) => {
             if (index % 2){
-              return <ChatBubble rightSide={true} text={item.text} time={item.time} name={item.name}></ChatBubble>
+              return <ChatBubble key={index}  rightSide={true} text={item.text} time={item.time} name={item.name}></ChatBubble>
             }else{
-              return <ChatBubble rightSide={false} text={item.text} time={item.time} name={item.name}></ChatBubble>
+              return <ChatBubble  key={index} rightSide={false} text={item.text} time={item.time} name={item.name}></ChatBubble>
             }
           })
         }
 
       </ChatTextsArea>
       <ChatBoxLocation>
-        chat box here
+        <TextArea></TextArea>
       </ChatBoxLocation>
-      { !!isAuthenticated && (
-        <Navigation />
-      )}
+      
     </ChatLayout>
 ;
 

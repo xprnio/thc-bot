@@ -13,7 +13,6 @@ const ChatBubble = ({rightSide, time, text, name}: ChatProps) =>
         <p>{name}</p>
         <Text>{text}</Text>
         <Time>{time}</Time>
-
     </ChatBubbleContainer>
 ;
 

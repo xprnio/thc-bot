@@ -7,6 +7,6 @@ export const NavItems = styled.div`
     justify-content: space-evenly;
 `;
 
-export const NavItem = styled.a`
+export const NavItem = styled.div`
 
 `;
