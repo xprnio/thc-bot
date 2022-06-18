@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "license": "UNLICENSED",
-	"engines": {
-		"node": ">=v17.0.0",
-		"npm": ">=8.0.0"
-	},
+  "engines": {
+    "node": ">=v17.0.0",
+    "npm": ">=8.0.0"
+  },
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
