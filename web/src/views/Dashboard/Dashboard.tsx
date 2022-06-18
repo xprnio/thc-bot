@@ -24,7 +24,7 @@ const Dashboard = () => {
       <Scrollable>
         {profits && profits.map((profit) => (
           <ProfitCard
-            label={profit.name}
+            name={profit.name}
             profit={profit.profit}
             margin={profit.change}
           />
@@ -33,17 +33,17 @@ const Dashboard = () => {
       <Label type="title">Strategies</Label>
       <Scrollable>
         <StrategyCard
-          label="My Strategy"
+          name="My Strategy"
           profit={100}
           margin={42}
-          total={1000}
+          value={1000}
         />
       </Scrollable>
       <Label type="title">Assets</Label>
       <Scrollable>
         {assets && assets.map((asset) => (
           <AssetCard
-            label={asset.name}
+            name={asset.name}
             profit={asset.profit}
             margin={asset.change}
             value={asset.value}

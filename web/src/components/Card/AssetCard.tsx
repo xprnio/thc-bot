@@ -2,8 +2,8 @@ import { useMemo } from 'react';
 import * as Styled from './Card.styled';
 
 type AssetCardProps = {
+  name: string,
   profit: number,
-  label: string,
   value: number,
   margin: number
 };
@@ -18,7 +18,7 @@ const AssetCard = (item: AssetCardProps) => {
   return (
     <Styled.Container>
       <Styled.Header>
-        <h1>{item.label}</h1>
+        <h1>{item.name}</h1>
         <Styled.MarginTicker margin={item.margin}>{item.margin}%</Styled.MarginTicker>
       </Styled.Header>
       <Styled.Content>

@@ -2,9 +2,9 @@ import { useMemo } from 'react';
 import * as Styled from './Card.styled';
 
 type StrategyCardProps = {
-  label: string;
+  name: string;
   profit: number;
-  total: number;
+  value: number;
   margin: number;
 };
 
@@ -18,12 +18,12 @@ const StrategyCard = (item: StrategyCardProps) => {
   return (
     <Styled.Container>
       <Styled.Header>
-        <h1>{item.label}</h1>
+        <h1>{item.name}</h1>
         <Styled.MarginTicker margin={item.margin}>{item.margin}%</Styled.MarginTicker>
       </Styled.Header>
       <Styled.Content>
         <h1>{sign}&nbsp;{profit}{currency}</h1>
-        <h3>{item.total}{currency}</h3>
+        <h3>{item.value}{currency}</h3>
       </Styled.Content>
     </Styled.Container>
   );
