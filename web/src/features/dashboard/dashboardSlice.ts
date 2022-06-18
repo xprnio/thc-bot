@@ -24,16 +24,15 @@ export interface Strategy {
     margin: number,
     value: number,
 }
-
 interface Dashboard {
     strategies?: Strategy[],
-    assets?: Assets[]
-    profits?: Profits[]
-    state: 'loading' | 'idle' | 'failed'
+    assets?: Assets[],
+    profits?: Profits[],
+    status: 'loading' | 'idle' | 'failed',
 }
 
 const initialState: Dashboard = {
-    state: 'idle'
+    status: 'idle'
 }
 
 export const getData = createAsyncThunk(
