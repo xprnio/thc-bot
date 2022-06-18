@@ -4,7 +4,11 @@ import { Icon } from 'react-icons-kit';
 import { compass } from 'react-icons-kit/icomoon/compass';
 import { SendButton, Input, TextAreaContainer } from './InputField.styled';
 
-const InputField: React.FC = () => {
+type Input = {
+  onSubmit: (value: string) => any
+}
+
+const InputField: React.FC<Input> = ({onSubmit}) => {
   const [message, setMessage] = useState('');
 
   const handleChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
@@ -14,7 +18,7 @@ const InputField: React.FC = () => {
 
   const chatMessageSend = useCallback((event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(message);
+    onSubmit(message);
   }, [message]);
 
   return (

@@ -14,7 +14,7 @@ export interface ConversationState {
   status: 'idle' | 'loading' | 'failed';
 }
 
-interface ConversationOption {
+export interface ConversationOption {
   key: string;
   label: string;
 }
@@ -24,7 +24,7 @@ const initialState: ConversationState = {
 };
 
 export interface Payload {
-  value: string;
+  value: null | string;
 }
 
 export interface FetchConversation {

@@ -1,7 +1,6 @@
 import styled from 'styled-components/macro';
 
 export const Button = styled.button`
-  width: 100%;
   background-color:#0a0a23;
   color: #fff;
   border:none; 

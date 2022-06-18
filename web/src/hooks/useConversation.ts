@@ -73,6 +73,7 @@ function useConversation() {
   }, [currentState, nextState, next]);
 
   return {
+    conversation: data,
     currentState,
     machine,
     messages: useMemo(
