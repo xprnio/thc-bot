@@ -2,10 +2,12 @@ import './App.css'
 import MainView from './views/MainView/MainView'
 import { Routes, Route } from "react-router-dom";
 import Dashboard from './views/Dashboard/Dashboard';
-import isAuthenticated from './hooks/api/useAuthentication'
 import Navigation from './components/Navigation/Navigation';
 import styled from 'styled-components/macro';
 import { ConverstationTest } from './features/conversation/ConversationTest';
+import { useAppDispatch, useAppSelector } from './app/hooks';
+import { getAuthentication, selectIsAuthenticated } from './features/authentication/authenticationSlice';
+import { useEffect } from 'react';
 
 
 const Layout = styled.div`
@@ -15,6 +17,7 @@ const Layout = styled.div`
 `;
 
 function App() {
+  const isAuthenticated = useAppSelector(selectIsAuthenticated)
 
   return (
     <Layout>
