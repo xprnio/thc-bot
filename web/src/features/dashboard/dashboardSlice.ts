@@ -2,14 +2,14 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 import { fetchAssets, fetchProfits } from './dashboardAPI';
 
-interface Profits {
+export interface Profits {
     id: string,
     name: string,
     profit: number,
     change: number,
 }
 
-interface Assets {
+export interface Assets {
     id: string,
     name: string,
     profit: number,
