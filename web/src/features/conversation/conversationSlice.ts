@@ -2,17 +2,19 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 import { fetchConversation } from './conversationAPI';
 
-interface ConversationState {
-  key?: string,
-  type?: 'information' | 'prompt' | 'options'
-  content?: string[]
+export type Conversation = {
+  key: string,
+  type: 'information' | 'prompt' | 'options'
+  content: string[]
   pattern?: string
   options?: ConversationOption[]
-  username?: string
+};
+export interface ConversationState {
+  data?: Conversation;
   status: 'idle' | 'loading' | 'failed';
 }
 
-interface ConversationOption {
+export interface ConversationOption {
   key: string;
   label: string;
 }
@@ -22,7 +24,7 @@ const initialState: ConversationState = {
 };
 
 export interface Payload {
-  value: string;
+  value: null | string;
 }
 
 export interface FetchConversation {
@@ -53,7 +55,7 @@ export const conversationSlice = createSlice({
     builder.addCase(getConversation.fulfilled, (state, action) => {
       return {
         ...state,
-        ...action.payload,
+        data: action.payload,
         status: 'idle',
       };
     });
@@ -66,6 +68,6 @@ export const conversationSlice = createSlice({
   },
 });
 
-export const selectContent = (state: RootState) => state.conversation.content;
+export const selectData = (state: RootState) => state.conversation.data
 
 export default conversationSlice.reducer;

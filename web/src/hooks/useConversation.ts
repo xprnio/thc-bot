@@ -1,11 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../app/hooks';
+import { Conversation, getConversation, selectData } from '../features/conversation/conversationSlice';
 import useStateMachine, { MachineState } from './useStateMachine';
-
-type Conversation = {
-  key: string;
-  type: string;
-  content: string[];
-}
 
 const mapToState = (
   conversation: Conversation,
@@ -34,27 +30,26 @@ function useConversation() {
   const machine = useStateMachine();
   const { currentState, nextState, next, setStates } = machine;
 
+  const data = useAppSelector(selectData)
+  const dispatch = useAppDispatch()
   const [messages, setMessages] = useState<string[]>([]);
   const [visible, setVisible] = useState(0);
   const [typing, setTyping] = useState(false);
 
   useEffect(() => {
-    // TODO: Do GET /conversation request and update machine based on data
-    const data = {
-      key: 'onboarding.welcome',
-      type: 'information',
-      content: [
-        'Hello',
-        'I am Robert and I will be your personal AI trader',
-        'I will be asking you a series of questions',
-      ],
-    };
+    dispatch(getConversation({
+      username: 'wat',
+      type: 'GET',
+    }))
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (!data) return;
 
     const states = mapToState(
       data,
-      (index) => {
+      () => {
         setTyping(true);
-        setVisible(index);
       },
       (index) => {
         setTyping(false);
@@ -63,17 +58,17 @@ function useConversation() {
     );
     setMessages(data.content);
     setStates(states);
-  }, [setStates, setTyping, setVisible]);
+  }, [data, setStates, setTyping, setVisible]);
 
   useEffect(() => {
     if (!nextState) return;
 
     const timeout = setTimeout(next, 750);
-
     return () => clearTimeout(timeout);
   }, [currentState, nextState, next]);
 
   return {
+    conversation: data,
     currentState,
     machine,
     messages: useMemo(
@@ -81,6 +76,10 @@ function useConversation() {
       [messages, visible],
     ),
     isTyping: typing,
+    isComplete: useMemo(
+      () => visible === messages.length,
+      [messages, visible],
+    )
   };
 }
 
