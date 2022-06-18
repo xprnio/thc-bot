@@ -11,7 +11,7 @@ const MainView = () => {
   const dispatch = useAppDispatch();
   const handleSubmit = useCallback((value: string | null) => {
     dispatch(getConversation({
-      username: 'test',
+      username: 'wat',
       type: 'POST',
       payload: { value },
     }));

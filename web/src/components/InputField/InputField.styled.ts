@@ -24,5 +24,5 @@ export const SendButton = styled.button`
   background: none;
   border: none;
   outline: none;
-  transform: rotate(45deg)
+  transform: rotate(47deg)
 `;
