@@ -25,7 +25,7 @@ const InputField: React.FC<Input> = ({onSubmit}) => {
     <TextAreaContainer onSubmit={chatMessageSend}>
       <Input onChange={handleChange}></Input>
       <SendButton type="submit">
-        <Icon icon={compass} />
+        <Icon size='24' icon={compass} />
       </SendButton>
     </TextAreaContainer>
   );
