@@ -1,15 +1,15 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
-import { fetchAssets, fetchProfits } from './dashboardAPI';
+import { fetchData } from './dashboardAPI';
 
-interface Profits {
+export interface Profits {
     id: string,
     name: string,
     profit: number,
     change: number,
 }
 
-interface Assets {
+export interface Assets {
     id: string,
     name: string,
     profit: number,
@@ -17,7 +17,17 @@ interface Assets {
     change: number,
 }
 
+export interface Strategy {
+    id: string,
+    short_desc: string,
+    name: string,
+    profit: number,
+    user_rating: number,
+    risk: string,
+}
+
 interface Dashboard {
+    strategies?: Strategy[],
     assets?: Assets[]
     profits?: Profits[]
     state: 'loading' | 'idle' | 'failed'
@@ -27,19 +37,11 @@ const initialState: Dashboard = {
     state: 'idle'
 }
 
-export const getProfits = createAsyncThunk(
-    'dashboard/getProfits',
-    async () => {
-        const response = await fetchProfits()
-        return response.data
-    }
-)
-
-export const getAssets = createAsyncThunk(
-    'dashboard/getAsssets',
-    async () => {
-        const response = await fetchAssets()
-        return response.data
+export const getData = createAsyncThunk(
+    'dashboard/getData',
+    async (value: string) => {
+        const response = await fetchData(value)
+        return response
     }
 )
 
@@ -48,49 +50,30 @@ export const dashboardSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: (builder) => {
-        builder.addCase(getProfits.pending, (state) => {
+        builder.addCase(getData.pending, (state) => {
             return {
                 ...state,
                 status: 'loading'
             }
         })
-        builder.addCase(getProfits.fulfilled, (state, action) => {
+        builder.addCase(getData.fulfilled, (state, action) => {
             return {
                 ...state,
-                profits: action.payload,
+                [action.payload.value]: action.payload.data,
                 status: 'idle'
             }
         })
-        builder.addCase(getProfits.rejected, (state) => {
+        builder.addCase(getData.rejected, (state) => {
             return {
                 ...state,
                 status: 'failed'
             }
         })
-        builder.addCase(getAssets.pending, (state) => {
-            return {
-                ...state,
-                status: 'loading'
-            }
-        })
-        builder.addCase(getAssets.fulfilled, (state, action) => {
-            return {
-                ...state,
-                assets: action.payload,
-                status: 'idle'
-            }
-        })
-        builder.addCase(getAssets.rejected, (state) => {
-            return {
-                ...state,
-                status: 'failed'
-            }
-        })
-        
     }
 })
 
 export const selectProfits = (state: RootState) => state.dashboard.profits
 export const selectAssets = (state: RootState) => state.dashboard.assets
+export const selectStrategies = (state: RootState) => state.dashboard.strategies
 
 export default dashboardSlice.reducer;
