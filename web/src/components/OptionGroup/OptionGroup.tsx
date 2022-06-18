@@ -8,14 +8,12 @@ type OptionGroupProps = {
   onSubmit: (value: string) => any
 }
 
-export const OptionGroup: React.FC<OptionGroupProps> = ({ options, onSubmit }) => {
-  return (
-    <Styled.OptionGroup>
-      {options.map(option => (
-        <Button key={option.key} onClick={() => onSubmit(option.key)}>
-          {option.label}
-        </Button>
-      ))}
-    </Styled.OptionGroup>
-  );
-};
+export const OptionGroup: React.FC<OptionGroupProps> = ({ options, onSubmit }) => (
+  <Styled.OptionGroup>
+    {options.map(option => (
+      <Button key={option.key} onClick={() => onSubmit(option.key)}>
+        {option.label}
+      </Button>
+    ))}
+  </Styled.OptionGroup>
+);

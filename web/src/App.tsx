@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Dashboard from './views/Dashboard/Dashboard';
 import Navigation from './components/Navigation/Navigation';
 import styled from 'styled-components/macro';
+import Strategies from './views/Strategies/Strategies';
 
 
 const Layout = styled.div`
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainView />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/strategies" element={<Strategies />} />
       </Routes>
       <Navigation />
     </Layout>

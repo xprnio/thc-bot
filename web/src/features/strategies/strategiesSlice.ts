@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 import { fetchStrategyPreviews } from './strategiesAPI';
 
-interface Strategy {
+export interface Strategy {
     id: string,
     name: string,
     description: number,
