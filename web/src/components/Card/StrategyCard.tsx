@@ -1,16 +1,17 @@
 import { useMemo } from 'react';
 import * as Styled from './Card.styled';
 
-export type ProfitCardProps = {
+type StrategyCardProps = {
   label: string;
-  margin: number;
   profit: number;
-}
+  total: number;
+  margin: number;
+};
 
-const ProfitCard = (item: ProfitCardProps) => {
+const StrategyCard = (item: StrategyCardProps) => {
   const sign = useMemo(
     () => item.profit > 0 ? '+' : '-',
-    [item],
+    [item.profit],
   );
   const currency = '$';
   return (
@@ -21,8 +22,9 @@ const ProfitCard = (item: ProfitCardProps) => {
       </Styled.Header>
       <Styled.Content>
         <h1>{sign}&nbsp;{item.profit}{currency}</h1>
+        <h3>{item.total}{currency}</h3>
       </Styled.Content>
     </Styled.Container>
   );
 };
-export default ProfitCard;
+export default StrategyCard;
