@@ -16,7 +16,7 @@ const Dashboard = () => {
   useEffect(() => {
     dispatch(getData('profits'));
     dispatch(getData('assets'));
-    dispatch(getData('strategies'))
+    dispatch(getData('strategies'));
   }, [dispatch]);
 
   return (
