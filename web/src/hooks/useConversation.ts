@@ -38,7 +38,7 @@ function useConversation() {
 
   useEffect(() => {
     dispatch(getConversation({
-      username: 'wat',
+      username: 'superman',
       type: 'GET',
     }))
   }, [dispatch]);
