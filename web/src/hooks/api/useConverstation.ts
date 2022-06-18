@@ -1,13 +1,13 @@
 import { useCallback, useContext, useEffect, useMemo } from "react"
-import { ConverstationContext } from "../../context/ConverstationContext"
+import { ConversationContext } from "../../context/ConversationContext"
 
 type PostData = {
     key: string,
     value: string
 }
 
-export function useConverstation() {
-    const [store, setStore] = useContext(ConverstationContext)
+export function useConversation() {
+    const [store, setStore] = useContext(ConversationContext)
 
     useEffect(() => {
         const abort = new AbortController();
@@ -49,6 +49,6 @@ export function useConverstation() {
             key: store.key,
         }
     }, [store]);
-    
+
     return [conversation, respond];
 }

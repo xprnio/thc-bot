@@ -1,38 +1,38 @@
 import {createContext, PropsWithChildren, useEffect, useState } from "react"
 import { ContextType } from './types';
 
-type ConverstationContext = {
+type ConversationContextType = {
     key?: string;
     type?: 'information' | 'prompt' | 'options';
     content?: string[];
     pattern?: string;
-    options?: ConverstationOption[];
+    options?: ConversationOption[];
 
     isLoaded: boolean;
 }
 
-type ConverstationOption = {
+type ConversationOption = {
     key: string;
     label: string;
 }
 
-const DEFAULT_CONTEXT: ConverstationContext = {
+const DEFAULT_CONTEXT: ConversationContextType = {
     isLoaded: false,
 };
 
-export const ConverstationContext = createContext<ContextType<ConverstationContext>>([
+export const ConversationContext = createContext<ContextType<ConversationContextType>>([
     DEFAULT_CONTEXT,
-    (state: ConverstationContext) => state,
+    (state: ConversationContextType) => state,
 ]);
 
-export function WithConverstationContext(props: PropsWithChildren) {
+export function WithConversationContext(props: PropsWithChildren) {
     const [state, setState] = useState(DEFAULT_CONTEXT);
     useEffect(() => {
         console.log(state);
-    }, [state]) 
+    }, [state])
     return (
-        <ConverstationContext.Provider value={[state, setState]}>
+        <ConversationContext.Provider value={[state, setState]}>
             {props.children}
-        </ConverstationContext.Provider>
+        </ConversationContext.Provider>
     )
 }

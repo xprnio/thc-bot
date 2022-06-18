@@ -1,4 +1,4 @@
-import { useCallback, useContext, useState } from 'react';
+import { useCallback, useContext } from 'react';
 import { UserContext } from '../../context/UserContext';
 
 export default function useAuthentication() {
@@ -7,7 +7,7 @@ export default function useAuthentication() {
   return {
     user: store.user,
     isAuthenticated: store.isAuthenticated,
-    authenticate : useCallback(async () => {
+    authenticate: useCallback(async () => {
       const result = await fetch('');
       const { user } = await result.json();
       setStore({ user });

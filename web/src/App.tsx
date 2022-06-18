@@ -7,7 +7,7 @@ import Navigation from './components/Navigation/Navigation';
 import styled from 'styled-components/macro';
 
 
-const LayOut = styled.div`
+const Layout = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -16,7 +16,7 @@ const LayOut = styled.div`
 function App() {
 
   return (
-    <LayOut>
+    <Layout>
       <Routes>
         <Route path="/" element={<MainView />} />
         <Route path="/dashboard" element={<Dashboard />} />
@@ -24,7 +24,7 @@ function App() {
       { !!isAuthenticated && (
         <Navigation />
       )}
-    </LayOut>
+    </Layout>
   )
 }
 

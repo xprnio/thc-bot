@@ -1,18 +1,18 @@
-import React, { Dispatch, PropsWithChildren, SetStateAction, useState } from 'react';
+import React, { PropsWithChildren, useState } from 'react';
 import { ContextType } from './types';
 
-type UserContext = {
+type UserContextType = {
   user: {} | null;
   isAuthenticated?: boolean;
 };
-const DEFAULT_CONTEXT: UserContext = {
+const DEFAULT_CONTEXT: UserContextType = {
   user: null,
   isAuthenticated: true,
 };
 
-export const UserContext = React.createContext<ContextType<UserContext>>([
+export const UserContext = React.createContext<ContextType<UserContextType>>([
   DEFAULT_CONTEXT,
-  (state: UserContext) => state,
+  (state: UserContextType) => state,
 ]);
 
 export default function WithUserContext(props: PropsWithChildren) {

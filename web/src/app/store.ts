@@ -1,9 +1,9 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import converstationReducer from '../features/converstation/converstationSlice';
+import conversationReducer from '../features/conversation/conversationSlice';
 
 export const store = configureStore({
   reducer: {
-    converstation: converstationReducer
+    conversation: conversationReducer
     },
 });
 
