@@ -1,38 +1,17 @@
-import { ChatBoxLocation, ChatLayout, ChatTextsArea } from './MainView.styled';
-import ChatBubble from '../../components/ChatBubble/ChatBubble';
-import TextAreaInput from '../../components/TextArea/TextArea';
-import { Button } from '../../components';
+import ConversationControls from '../../components/ConversationControls/ConversationControls';
+import MessageGroup from '../../components/MessageGroup/MessageGroup';
+import useConversation from '../../hooks/useConversation';
+import * as Styled from './MainView.styled';
 
-const dummy = [
-  {text: 'dqwiepqwoie', time: '11:00', name: 'sergei'},
-  {text: 'xd21 nvsad 2e13123 dsadasdsa', time: '13:00', name: 'paul'},
-  {text: 'dkjlasjdklkajdlk lsdjlaskjdlkas daskljdalksjdlka', time: '13:00', name: 'joss'},
-  {text: 'daldlk;akd;lak;dlaks', time: '13:00', name: 'dex'},
-]
+const MainView = () => {
+  const { messages, isTyping } = useConversation();
 
-
-const MainView = () => 
-    <ChatLayout>
-      <ChatTextsArea>
-        {
-          dummy.map((item, index) => {
-            if (index % 2){
-              return <ChatBubble key={index}  rightSide={true} text={item.text} ></ChatBubble>
-            }else{
-              return <ChatBubble  key={index} rightSide={false} text={item.text} ></ChatBubble>
-            }
-          })
-        }
-
-      </ChatTextsArea>
-      <ChatBoxLocation>
-        <Button>
-           button 
-        </Button>
-        <TextAreaInput></TextAreaInput>
-      </ChatBoxLocation>
-      
-    </ChatLayout>
-;
+  return (
+    <Styled.Container>
+      <MessageGroup messages={messages}  isTyping={isTyping} />
+      <ConversationControls />
+    </Styled.Container>
+  );
+};
 
 export default MainView;
