@@ -13,6 +13,7 @@ const AssetCard = (item: AssetCardProps) => {
     () => item.profit > 0 ? '+' : '-',
     [item],
   );
+  const profit = Math.abs(item.profit);
   const currency = '$';
   return (
     <Styled.Container>
@@ -21,7 +22,7 @@ const AssetCard = (item: AssetCardProps) => {
         <Styled.MarginTicker margin={item.margin}>{item.margin}%</Styled.MarginTicker>
       </Styled.Header>
       <Styled.Content>
-        <h1>{sign}&nbsp;{item.profit}{currency}</h1>
+        <h1>{sign}&nbsp;{profit}{currency}</h1>
         <h3>{item.total}{currency}</h3>
       </Styled.Content>
     </Styled.Container>

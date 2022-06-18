@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { ProfitCard } from '../../components/Card';
+import StrategyCard from '../../components/Card/StrategyCard';
 import { Label } from '../../components/Label/Label';
 import { Scrollable } from '../../components/Scrollable';
 import { getData, selectAssets, selectProfits } from '../../features/dashboard/dashboardSlice';
 import { DashboardContainer } from './Dashboard.styled';
 
 const Dashboard = () => {
-  // TODO: Implement data
   const profits = useAppSelector(selectProfits);
   const assets = useAppSelector(selectAssets);
   const dispatch = useAppDispatch();
@@ -28,6 +28,15 @@ const Dashboard = () => {
             margin={profit.change}
           />
         ))}
+      </Scrollable>
+      <Label type="title">Strategies</Label>
+      <Scrollable>
+        <StrategyCard
+          label="My Strategy"
+          profit={100}
+          margin={42}
+          total={1000}
+        />
       </Scrollable>
       <Label type="title">Assets</Label>
       <Scrollable>
