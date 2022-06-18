@@ -10,9 +10,13 @@ export const NavItems = styled.div`
 export const NavItem = styled.button`
     width: 100%;
     height: 30px;
-    background-color: #41658A;
-    color: #f0f0f0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    color: #41658A;
+    border: none;
+    background: transparent;
     &:active{
-        background-color: #79E2E2;
+        color: #79E2E2;
     }
 `;
