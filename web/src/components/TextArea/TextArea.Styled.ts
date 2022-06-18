@@ -3,7 +3,7 @@ import styled from 'styled-components/macro';
 
 export const TextArea = styled.textarea`
     width: 100%;
-    height: 100px;
+    height: 60px;
     padding: 12px 20px;
     box-sizing: border-box;
     border: 2px solid #ccc;

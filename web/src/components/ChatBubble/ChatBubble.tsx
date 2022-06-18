@@ -1,18 +1,13 @@
-import { ChatBubbleContainer, ChatPersonImage, Time, Text } from "./ChatBubble.Styled";
+import { ChatBubbleContainer, Text } from "./ChatBubble.Styled";
 
 type ChatProps = {
     rightSide: boolean,
-    time: string,
     text: string,
-    name: string
 }
 
-const ChatBubble = ({rightSide, time, text, name}: ChatProps) => 
+const ChatBubble = ({rightSide, text}: ChatProps) => 
     <ChatBubbleContainer rightSide={rightSide}>
-        <ChatPersonImage></ChatPersonImage>
-        <p>{name}</p>
         <Text>{text}</Text>
-        <Time>{time}</Time>
     </ChatBubbleContainer>
 ;
 

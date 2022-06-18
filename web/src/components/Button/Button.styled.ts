@@ -14,4 +14,11 @@ const buttonColor = ({ toggled }: ButtonProps) => {
 export const Button = styled.button<ButtonProps>`
   background-color: ${buttonBackgroundColor};
   color: ${buttonColor};
+  width: 100%;
+    background-color:#0a0a23;
+    color: #fff;
+    border:none; 
+    border-radius:10px; 
+    padding:15px;
+    min-height:30px; 
 `;

@@ -8,5 +8,4 @@ export const NavItems = styled.div`
 `;
 
 export const NavItem = styled.div`
-
 `;
