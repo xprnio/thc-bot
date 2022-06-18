@@ -6,9 +6,7 @@ import { JourneyService } from '../services/journey.service';
 @Controller('/conversation')
 @UseInterceptors(EnvelopeInterceptor)
 export class ConversationController {
-  constructor(
-    private readonly journeys: JourneyService,
-  ) {}
+  constructor(private readonly journeys: JourneyService) {}
 
   @Get(':username')
   async getCurrentConversation(@Param('username') username: string) {
@@ -30,10 +28,7 @@ export class ConversationController {
   }
 
   @Post(':username')
-  async respondToConversation(
-    @Param('username') username: string,
-    @Body('value') value: string | null,
-  ) {
+  async respondToConversation(@Param('username') username: string, @Body('value') value: string | null) {
     const journey = this.journeys.getCurrentJourney(username);
     if (!journey) {
       throw new BadRequestException('No conversation to respond to');

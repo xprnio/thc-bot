@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import onboardingJourney from '../journeys/onboarding.journey';
 
-import type { Journey, JourneyKey } from '../types/journey';
+import type { Journey, JourneyKey } from '../types/journey.type';
 
 export type UserKey = string;
 export type UserData = {
@@ -13,7 +13,6 @@ export type UserJourney = { journey: Journey; response?: null | string };
 @Injectable()
 export class JourneyService {
   private journeys: Map<JourneyKey, Journey> = new Map();
-
   private users: Map<UserKey, UserData> = new Map();
 
   constructor() {

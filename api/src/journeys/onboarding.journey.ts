@@ -1,4 +1,4 @@
-import { JourneyGroup, JourneyType } from '../types/journey';
+import { JourneyGroup, JourneyType } from '../types/journey.type';
 
 const OnboardingJourney = (): JourneyGroup => {
   return {

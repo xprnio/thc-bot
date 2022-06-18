@@ -1,7 +1,7 @@
-export type Asset = {
+export type UserStrategy = {
   id: string;
   name: string;
   profit: number;
   value: number;
-  change: number;
+  margin: number;
 };
