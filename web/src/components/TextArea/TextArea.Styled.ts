@@ -13,11 +13,11 @@ export const TextArea = styled.textarea`
     resize: none;
 `;
 
-export const TextAreaContainer = styled.div`
+export const TextAreaContainer = styled.form`
     display: flex;
 `;
 
 
 export const SendButton = styled.button`
-    
+
 `;
