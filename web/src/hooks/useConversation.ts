@@ -1,8 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { Conversation, FetchConversation, getConversation, selectData } from '../features/conversation/conversationSlice';
+import { Conversation, getConversation, selectData } from '../features/conversation/conversationSlice';
 import useStateMachine, { MachineState } from './useStateMachine';
-
 
 const mapToState = (
   conversation: Conversation,
@@ -36,24 +35,21 @@ function useConversation() {
   const [messages, setMessages] = useState<string[]>([]);
   const [visible, setVisible] = useState(0);
   const [typing, setTyping] = useState(false);
-  const submitData: FetchConversation = {
-    username: 'test',
-    type: 'GET',
-  }
 
   useEffect(() => {
-    dispatch(getConversation(submitData))
+    dispatch(getConversation({
+      username: 'test',
+      type: 'GET',
+    }))
   }, [dispatch]);
 
   useEffect(() => {
-
     if (!data) return;
 
     const states = mapToState(
       data,
-      (index) => {
+      () => {
         setTyping(true);
-        setVisible(index);
       },
       (index) => {
         setTyping(false);
@@ -68,7 +64,6 @@ function useConversation() {
     if (!nextState) return;
 
     const timeout = setTimeout(next, 750);
-
     return () => clearTimeout(timeout);
   }, [currentState, nextState, next]);
 
@@ -81,6 +76,10 @@ function useConversation() {
       [messages, visible],
     ),
     isTyping: typing,
+    isComplete: useMemo(
+      () => visible === messages.length,
+      [messages, visible],
+    )
   };
 }
 

@@ -10,6 +10,10 @@ function useStateMachine<T>(initialStates: MachineState<T>[] = []) {
   const [states, setStates] = useState(initialStates);
   const [current, setCurrent] = useState(0);
 
+  useEffect(() => {
+    setCurrent(0);
+  }, [states, setCurrent]);
+
   const currentState = useMemo(
     () => states[current],
     [states, current],
