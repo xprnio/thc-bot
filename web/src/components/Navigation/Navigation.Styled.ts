@@ -7,5 +7,12 @@ export const NavItems = styled.div`
     justify-content: space-evenly;
 `;
 
-export const NavItem = styled.div`
+export const NavItem = styled.button`
+    width: 100%;
+    height: 30px;
+    background-color: #41658A;
+    color: #f0f0f0;
+    &:active{
+        background-color: #79E2E2;
+    }
 `;
