@@ -26,7 +26,7 @@ export const ConverstationTest = () => {
     return(
         <main>
             <p>
-                {content && content[0]}
+                {content}
             </p>
             <input type="text" value={value} onChange={(e: any) => setValue(e.target.value)}/>
             <button onClick={() => submitFunction()} >SUBMIT</button>

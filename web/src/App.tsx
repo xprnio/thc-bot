@@ -5,6 +5,7 @@ import Dashboard from './views/Dashboard/Dashboard';
 import isAuthenticated from './hooks/api/useAuthentication'
 import Navigation from './components/Navigation/Navigation';
 import styled from 'styled-components/macro';
+import { ConverstationTest } from './features/conversation/ConversationTest';
 
 
 const Layout = styled.div`
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainView />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/test" element={<ConverstationTest/>} />
       </Routes>
       { !!isAuthenticated && (
         <Navigation />
