@@ -5,11 +5,10 @@ import { fetchStrategyPreviews } from './strategiesAPI';
 interface Strategy {
     id: string,
     name: string,
-    profit: number,
-    margin: number,
+    description: number,
+    risk_level: string,
     user_rating: number,
-    short_desc: number,
-    risk: string,
+    average_profit: number,
 }
 
 export interface Strategies {
@@ -21,7 +20,7 @@ const initialState: Strategies = {
     status: 'idle'
 }
 
-const getStrategyPreviews = createAsyncThunk(
+export const getStrategyPreviews = createAsyncThunk(
     'strategies/getStrategyPreviews',
     async () => {
         const response = await fetchStrategyPreviews()
