@@ -4,8 +4,6 @@ import { Routes, Route } from "react-router-dom";
 import Dashboard from './views/Dashboard/Dashboard';
 import Navigation from './components/Navigation/Navigation';
 import styled from 'styled-components/macro';
-import { useAppSelector } from './app/hooks';
-import { selectIsAuthenticated } from './features/authentication/authenticationSlice';
 
 
 const Layout = styled.div`
@@ -15,7 +13,6 @@ const Layout = styled.div`
 `;
 
 function App() {
-  const isAuthenticated = useAppSelector(selectIsAuthenticated)
 
   return (
     <Layout>
@@ -23,9 +20,7 @@ function App() {
         <Route path="/" element={<MainView />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
-      { !!isAuthenticated && (
-        <Navigation />
-      )}
+      <Navigation />
     </Layout>
   )
 }
