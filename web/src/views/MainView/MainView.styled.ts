@@ -14,4 +14,6 @@ export const ChatBoxLocation = styled.div`
 export const ChatTextsArea = styled.div`
     height: 100%;
     overflow: visible;
+    display: flex;
+    flex-direction: column;
 `;
