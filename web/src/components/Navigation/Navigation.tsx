@@ -17,13 +17,13 @@ const Navigation: FC = () => {
     return (
         <NavItems>
             <NavItem onClick={() => changeRoute('/')}>
-                <Icon icon={bubbles}></Icon>
+                <Icon size={24} icon={bubbles}></Icon>
             </NavItem>
             <NavItem onClick={() => changeRoute('/dashboard')}>
-                <Icon icon={home}></Icon>
+                <Icon size={24}  icon={home}></Icon>
             </NavItem>
             <NavItem onClick={() => changeRoute('/dashboard')}>
-                <Icon icon={home}></Icon>
+                <Icon size={24}  icon={home}></Icon>
             </NavItem>
         </NavItems>
     )
