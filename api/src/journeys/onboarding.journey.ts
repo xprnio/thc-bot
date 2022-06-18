@@ -14,6 +14,13 @@ const OnboardingJourney = (): JourneyGroup => {
           'We are about to set sail to the moon and beyond',
           'Godspeed',
         ],
+        next: 'onboarding.info.email',
+      },
+      {
+        key: 'info.email',
+        type: JourneyType.Prompt,
+        content: ["Let's start creating an account for you!", "What's your email address?"],
+        pattern: /^[a-z\d.]+@([a-z\d]+\.?)+$/,
         next: 'onboarding.info.name',
       },
       {
@@ -46,10 +53,7 @@ const OnboardingJourney = (): JourneyGroup => {
       {
         key: 'complete',
         type: JourneyType.Information,
-        content: [
-          'We got all we need from you',
-          'You are of no use to use anymore',
-        ],
+        content: ['We got all we need from you', 'You are of no use to use anymore', 'Good bye'],
       },
     ],
   };
