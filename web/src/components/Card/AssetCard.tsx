@@ -4,7 +4,7 @@ import * as Styled from './Card.styled';
 type AssetCardProps = {
   profit: number,
   label: string,
-  total: number,
+  value: number,
   margin: number
 };
 
@@ -23,7 +23,7 @@ const AssetCard = (item: AssetCardProps) => {
       </Styled.Header>
       <Styled.Content>
         <h1>{sign}&nbsp;{profit}{currency}</h1>
-        <h3>{item.total}{currency}</h3>
+        <h3>{item.value}{currency}</h3>
       </Styled.Content>
     </Styled.Container>
   );

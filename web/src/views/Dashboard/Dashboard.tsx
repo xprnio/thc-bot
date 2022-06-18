@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { ProfitCard } from '../../components/Card';
+import { AssetCard, ProfitCard } from '../../components/Card';
 import StrategyCard from '../../components/Card/StrategyCard';
 import { Label } from '../../components/Label/Label';
 import { Scrollable } from '../../components/Scrollable';
@@ -16,6 +16,7 @@ const Dashboard = () => {
     dispatch(getData('profits'));
     dispatch(getData('assets'));
   }, [dispatch]);
+
   return (
     <DashboardContainer>
       <Label type="heading">Dashboard</Label>
@@ -41,10 +42,11 @@ const Dashboard = () => {
       <Label type="title">Assets</Label>
       <Scrollable>
         {assets && assets.map((asset) => (
-          <ProfitCard
+          <AssetCard
             label={asset.name}
             profit={asset.profit}
             margin={asset.change}
+            value={asset.value}
           />
         ))}
       </Scrollable>
