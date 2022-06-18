@@ -1,14 +1,6 @@
-export const fetchProfits = async () => {
-    const endpoint = 'http://10.2.113.112:3000/dashboard/profits'
+export const fetchData = async (value: string) => {
+    const endpoint = `${process.env.REACT_APP_API_URL}/dashboard/${value}`
     const response = await fetch(endpoint)
     const resToJson = await response.json()
-    return resToJson;
+    return {data: resToJson.data, value: value};
 }
-
-export const fetchAssets = async () => {
-    const endpoint = 'http://10.2.113.112:3000/dashboard/assets'
-    const response = await fetch(endpoint)
-    const resToJson = await response.json()
-    return resToJson;
-}
-

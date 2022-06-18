@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { AssetCard, ProfitCard } from '../../components/Card';
 import { Label } from '../../components/Label/Label';
 import { Scrollable } from '../../components/Scrollable';
-import { Assets, getAssets, getProfits, Profits, selectAssets, selectProfits } from '../../features/dashboard/dashboardSlice';
+import { getData, selectAssets, selectProfits } from '../../features/dashboard/dashboardSlice';
 import { DashboardContainer } from './Dashboard.styled';
 
 const Dashboard = () => {
@@ -13,8 +13,8 @@ const Dashboard = () => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    dispatch(getProfits())
-    dispatch(getAssets())
+    dispatch(getData('profits'))
+    dispatch(getData('assets'))
   }, [dispatch])
   return (
     <DashboardContainer>
