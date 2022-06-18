@@ -22,13 +22,21 @@ const Dashboard = () => {
       <Label type="title">Profit</Label>
       <Scrollable>
         {profits && profits.map((profit) => (
-          <ProfitCard label={profit.name} profit={profit.profit} margin={profit.change} />
+          <ProfitCard
+            label={profit.name}
+            profit={profit.profit}
+            margin={profit.change}
+          />
         ))}
       </Scrollable>
       <Label type="title">Assets</Label>
       <Scrollable>
         {assets && assets.map((asset) => (
-          <ProfitCard label={asset.name} profit={asset.profit} margin={asset.change} />
+          <ProfitCard
+            label={asset.name}
+            profit={asset.profit}
+            margin={asset.change}
+          />
         ))}
       </Scrollable>
     </DashboardContainer>
