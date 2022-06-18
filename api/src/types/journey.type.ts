@@ -18,11 +18,7 @@ type JourneyResponse = {
 };
 type JourneyNavigator = (key: string) => void;
 
-export type JourneyHandler = (
-  response: JourneyResponse,
-  next: JourneyNavigator,
-) => void | Promise<void>;
-
+export type JourneyHandler = (response: JourneyResponse, next: JourneyNavigator) => void | Promise<void>;
 export type JourneyKey = string;
 
 export type JourneyGroup = {
