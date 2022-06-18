@@ -15,6 +15,7 @@ const Dashboard = () => {
   useEffect(() => {
     dispatch(getData('profits'));
     dispatch(getData('assets'));
+    dispatch(getData('strategies'))
   }, [dispatch]);
 
   return (
@@ -26,7 +27,7 @@ const Dashboard = () => {
           <ProfitCard
             name={profit.name}
             profit={profit.profit}
-            margin={profit.change}
+            margin={profit.margin}
           />
         ))}
       </Scrollable>
@@ -45,7 +46,7 @@ const Dashboard = () => {
           <AssetCard
             name={asset.name}
             profit={asset.profit}
-            margin={asset.change}
+            margin={asset.margin}
             value={asset.value}
           />
         ))}

@@ -6,7 +6,7 @@ export interface Profits {
     id: string,
     name: string,
     profit: number,
-    change: number,
+    margin: number,
 }
 
 export interface Assets {
@@ -14,16 +14,15 @@ export interface Assets {
     name: string,
     profit: number,
     value: number,
-    change: number,
+    margin: number,
 }
 
 export interface Strategy {
     id: string,
-    short_desc: string,
     name: string,
     profit: number,
-    user_rating: number,
-    risk: string,
+    margin: string,
+    value: string,
 }
 
 interface Dashboard {

@@ -1,7 +1,8 @@
+import { API_URL } from '../../constants';
 import { FetchConversation } from './conversationSlice';
 
 export async function fetchConversation({username, type, payload}: FetchConversation) {
-    const endpoint = `http://192.168.8.232:3000/conversation/${username}`
+    const endpoint = `${API_URL}/conversation/${username}`
     const res = await fetch(endpoint, {
         method: type,
         headers: { 'Content-Type': 'application/json' },
