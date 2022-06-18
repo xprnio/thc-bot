@@ -1,35 +1,27 @@
-import { AssetCard, ProfitCard } from "../../components/Card";
-import { Scrollable } from "../../components/Scrollable";
-import { DashboardContainer } from "./Dashboard.styled";
+import { AssetCard, ProfitCard } from '../../components/Card';
+import { Label } from '../../components/Label/Label';
+import { Scrollable } from '../../components/Scrollable';
+import { DashboardContainer } from './Dashboard.styled';
 
-
-const profitCardsData = [
-  {amount: 571, label: 'Total earning', timePeriod: 'All time', margin: 21},
-  {amount: 231, label: 'Weekly earning', timePeriod: '7 Days', margin: 53},
-  {amount: -231, label: 'Monthly earning', timePeriod: '7 Days', margin: -53},  
-]
-
-
-const Dashboard = () => 
+const Dashboard = () => {
+  // TODO: Implement data
+  return (
     <DashboardContainer>
-      <div>
-        <h4>Total earnings</h4>
-        <Scrollable>
-          <ProfitCard label="Total" profit={420} margin={69} />
-          <ProfitCard label="Total" profit={420} margin={69} />
-          <ProfitCard label="Total" profit={420} margin={69} />
-        </Scrollable>
-        <h4>Assets</h4>
-        <Scrollable>
-          <AssetCard label="Bitcoin" profit={420} margin={69} total={1337} />
-          <AssetCard label="Ethereum" profit={420} margin={69} total={1337} />
-          <AssetCard label="Monero" profit={420} margin={69} total={1337} />
-        </Scrollable>
-      </div>
-      <div>
-        
-      </div>
+      <Label type="heading">Dashboard</Label>
+      <Label type="title">Profit</Label>
+      <Scrollable>
+        <ProfitCard label="Total" profit={420} margin={69} />
+        <ProfitCard label="Today" profit={420} margin={69} />
+        <ProfitCard label="This week" profit={420} margin={69} />
+      </Scrollable>
+      <Label type="title">Assets</Label>
+      <Scrollable>
+        <AssetCard label="Bitcoin" profit={420} margin={69} total={1337} />
+        <AssetCard label="Ethereum" profit={420} margin={69} total={1337} />
+        <AssetCard label="Monero" profit={420} margin={69} total={1337} />
+      </Scrollable>
     </DashboardContainer>
-;
+  );
+};
 
 export default Dashboard;
