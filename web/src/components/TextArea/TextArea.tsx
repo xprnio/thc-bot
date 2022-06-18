@@ -1,7 +1,10 @@
-import { TextArea } from "./TextArea.Styled";
+import { SendButton, TextArea, TextAreaContainer } from "./TextArea.Styled";
 
-const Navigation = () => 
-    <TextArea></TextArea>
+const TextAreaInput = () => 
+    <TextAreaContainer>
+        <TextArea></TextArea>
+        <SendButton>Send</SendButton>
+    </TextAreaContainer>
 ;
 
-export default Navigation;
+export default TextAreaInput;

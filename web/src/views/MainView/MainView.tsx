@@ -1,6 +1,6 @@
 import { ChatBoxLocation, ChatLayout, ChatTextsArea } from './MainView.styled';
 import ChatBubble from '../../components/ChatBubble/ChatBubble';
-import { TextArea } from '../../components/TextArea/TextArea.Styled';
+import TextAreaInput from '../../components/TextArea/TextArea';
 
 const dummy = [
   {text: 'dqwiepqwoie', time: '11:00', name: 'sergei'},
@@ -25,7 +25,7 @@ const MainView = () =>
 
       </ChatTextsArea>
       <ChatBoxLocation>
-        <TextArea></TextArea>
+        <TextAreaInput></TextAreaInput>
       </ChatBoxLocation>
       
     </ChatLayout>

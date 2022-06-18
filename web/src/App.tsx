@@ -9,6 +9,8 @@ import styled from 'styled-components/macro';
 
 const LayOut = styled.div`
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 `;
 
 function App() {

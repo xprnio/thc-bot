@@ -13,3 +13,11 @@ export const TextArea = styled.textarea`
     resize: none;
 `;
 
+export const TextAreaContainer = styled.div`
+    display: flex;
+`;
+
+
+export const SendButton = styled.button`
+    
+`;
