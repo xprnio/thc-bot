@@ -26,6 +26,7 @@ const Dashboard = () => {
       <Scrollable>
         {profits && profits.map((profit) => (
           <ProfitCard
+            key={profit.id}
             name={profit.name}
             profit={profit.profit}
             margin={profit.margin}
@@ -36,6 +37,7 @@ const Dashboard = () => {
       <Scrollable>
         {strategies && strategies.map((strategy) => (
           <StrategyCard
+            key={strategy.id}
             name={strategy.name}
             profit={strategy.profit}
             margin={strategy.margin}
@@ -47,6 +49,7 @@ const Dashboard = () => {
       <Scrollable>
         {assets && assets.map((asset) => (
           <AssetCard
+            key={asset.id}
             name={asset.name}
             profit={asset.profit}
             margin={asset.margin}
