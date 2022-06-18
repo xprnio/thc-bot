@@ -1,7 +1,10 @@
+import { DashboardContainer } from "./Dashboard.styled";
 
 
 const Dashboard = () => 
-    <h1>dashboard</h1>
+    <DashboardContainer>
+      Dashboard
+    </DashboardContainer>
 ;
 
 export default Dashboard;
