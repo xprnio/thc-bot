@@ -21,8 +21,8 @@ export interface Strategy {
     id: string,
     name: string,
     profit: number,
-    margin: string,
-    value: string,
+    margin: number,
+    value: number,
 }
 
 interface Dashboard {

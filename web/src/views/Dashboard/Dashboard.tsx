@@ -4,12 +4,13 @@ import { AssetCard, ProfitCard } from '../../components/Card';
 import StrategyCard from '../../components/Card/StrategyCard';
 import { Label } from '../../components/Label/Label';
 import { Scrollable } from '../../components/Scrollable';
-import { getData, selectAssets, selectProfits } from '../../features/dashboard/dashboardSlice';
+import { getData, selectAssets, selectProfits, selectStrategies } from '../../features/dashboard/dashboardSlice';
 import { DashboardContainer } from './Dashboard.styled';
 
 const Dashboard = () => {
   const profits = useAppSelector(selectProfits);
   const assets = useAppSelector(selectAssets);
+  const strategies = useAppSelector(selectStrategies)
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -33,12 +34,14 @@ const Dashboard = () => {
       </Scrollable>
       <Label type="title">Strategies</Label>
       <Scrollable>
-        <StrategyCard
-          name="My Strategy"
-          profit={100}
-          margin={42}
-          value={1000}
-        />
+        {strategies && strategies.map((strategy) => (
+          <StrategyCard
+            name={strategy.name}
+            profit={strategy.profit}
+            margin={strategy.margin}
+            value={strategy.value}
+          />
+        ))}
       </Scrollable>
       <Label type="title">Assets</Label>
       <Scrollable>
