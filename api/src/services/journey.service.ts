@@ -12,15 +12,18 @@ export type UserJourney = { journey: Journey; response?: null | string };
 
 @Injectable()
 export class JourneyService {
+  private static readonly Journeys = [onboardingJourney()];
+
   private journeys: Map<JourneyKey, Journey> = new Map();
   private users: Map<UserKey, UserData> = new Map();
 
   constructor() {
-    const journeys = [onboardingJourney()];
-
-    journeys.forEach(({ key, journey }) => {
+    JourneyService.Journeys.forEach(({ key, journey }) => {
       journey.forEach((journey) => {
-        this.journeys.set(`${key}.${journey.key}`, journey);
+        this.journeys.set(`${key}.${journey.key}`, {
+          ...journey,
+          key: `${key}.${journey.key}`,
+        });
       });
     });
   }
@@ -37,6 +40,11 @@ export class JourneyService {
     if (!this.journeys.has(current)) return null;
 
     return this.journeys.get(current);
+  }
+
+  isLastStep(journeyKey: JourneyKey): boolean {
+    const index = JourneyService.Journeys.findIndex((journey) => journey.key === journeyKey);
+    return index === JourneyService.Journeys.length - 1;
   }
 
   getUserJourneys(userKey: UserKey): UserJourney[] {

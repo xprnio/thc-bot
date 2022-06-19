@@ -1,7 +1,7 @@
 import React from 'react';
 import { useCallback, useState } from 'react';
 import { Icon } from 'react-icons-kit';
-import { compass } from 'react-icons-kit/icomoon/compass';
+import {androidSend} from 'react-icons-kit/ionicons/androidSend'
 import { SendButton, Input, TextAreaContainer } from './InputField.styled';
 
 type InputFieldProps = {
@@ -25,7 +25,7 @@ const InputField: React.FC<InputFieldProps> = ({onSubmit}) => {
     <TextAreaContainer onSubmit={chatMessageSend}>
       <Input onChange={handleChange} />
       <SendButton type="submit">
-        <Icon size='24' icon={compass} />
+        <Icon size='24' icon={androidSend} />
       </SendButton>
     </TextAreaContainer>
   );

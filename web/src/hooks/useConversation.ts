@@ -43,7 +43,7 @@ function useConversation() {
   useEffect(() => {
     if (!states) return;
 
-    setTyping(false);
+    setTyping(true);
     setVisible(0);
   }, [states, setTyping, setVisible]);
 
@@ -72,8 +72,6 @@ function useConversation() {
   }, [data, setStates, setTyping, setVisible]);
 
   useEffect(() => {
-    if (!nextState) return;
-
     const timeout = setTimeout(next, 750);
     return () => clearTimeout(timeout);
   }, [nextState, next]);
@@ -81,6 +79,10 @@ function useConversation() {
   return {
     conversation: data,
     currentState,
+    allowInput: useMemo(
+      () => !typing && !nextState,
+      [typing, nextState]
+    ),
     machine,
     messages: useMemo(
       () => messages.slice(0, visible),

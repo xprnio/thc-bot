@@ -12,28 +12,34 @@ const OnboardingJourney = (): JourneyGroup => {
           'I will be your guided instructor for the day',
           'Please fasten your seatbelts and prepare for liftoff',
           'We are about to set sail to the moon and beyond',
-          'Godspeed',
         ],
         next: 'onboarding.info.email',
       },
       {
-        key: 'info.email',
-        type: JourneyType.Prompt,
-        content: ["Let's start creating an account for you!", "What's your email address?"],
-        pattern: /^[a-z\d.]+@([a-z\d]+\.?)+$/,
+        key: 'welcome',
+        type: JourneyType.Information,
+        content: [
+          'My name is Robert',
+          'I am your personal AI trade helper',
+          'You just tell me what your risk tolerance is, deposit money on your account to trade crypto with, browse and find strategies that suit your goals, and let me do all the rest!',
+        ],
         next: 'onboarding.info.name',
       },
       {
         key: 'info.name',
         type: JourneyType.Prompt,
-        content: ["Let's start with your name"],
+        content: ["Let's start with some basic information", "What's your name?"],
         pattern: /^[A-Z\s]+$/,
         next: 'onboarding.info.risk-tolerance',
       },
       {
         key: 'info.risk-tolerance',
         type: JourneyType.Options,
-        content: ['What is your risk tolerance?'],
+        content: [
+          'We trade automatically using the strategies you select that match your risk tolerance and goals.',
+          'Do keep in mind that although high risk also equals high reward: NO PROFITS ARE GUARANTEED.',
+          'Please tell me your risk tolerance so we could find suitable strategies for you',
+        ],
         options: [
           {
             key: 'low',
@@ -53,7 +59,10 @@ const OnboardingJourney = (): JourneyGroup => {
       {
         key: 'complete',
         type: JourneyType.Information,
-        content: ['We got all we need from you', 'You are of no use to use anymore', 'Good bye'],
+        content: [
+          'Thank you for the info',
+          'I will now look into my collection of libraries and try to find the best fit for you',
+        ],
       },
     ],
   };

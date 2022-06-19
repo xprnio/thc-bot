@@ -19,10 +19,9 @@ export const TextAreaContainer = styled.form`
 `;
 
 export const SendButton = styled.button`
-  padding: 8px 16px;
+  padding: 8px 8px;
   margin-left: 8px;
   background: none;
   border: none;
   outline: none;
-  transform: rotate(47deg)
 `;

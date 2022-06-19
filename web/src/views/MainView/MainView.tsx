@@ -7,7 +7,7 @@ import useConversation from '../../hooks/useConversation';
 import * as Styled from './MainView.styled';
 
 const MainView = () => {
-  const { conversation, messages, isTyping } = useConversation();
+  const { conversation, messages, allowInput, isTyping } = useConversation();
   const dispatch = useAppDispatch();
   const handleSubmit = useCallback((value: string | null) => {
     dispatch(getConversation({
@@ -20,7 +20,7 @@ const MainView = () => {
   return (
     <Styled.Container>
       <MessageGroup messages={messages} isTyping={isTyping} />
-      {conversation && (
+      {conversation && allowInput && (
         <ConversationControls
           options={conversation.options}
           type={conversation.type}

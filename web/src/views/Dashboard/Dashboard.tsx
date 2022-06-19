@@ -22,7 +22,7 @@ const Dashboard = () => {
   return (
     <DashboardContainer>
       <Label type="heading">Dashboard</Label>
-      <Label type="title">Profit</Label>
+      <Label type="title">My Profits</Label>
       <Scrollable>
         {profits && profits.map((profit) => (
           <ProfitCard

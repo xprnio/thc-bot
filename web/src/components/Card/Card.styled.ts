@@ -6,7 +6,7 @@ export const Container = styled.div`
   justify-content: stretch;
   flex-grow: 0;
   flex-shrink: 0;
-  margin: 5px;
+  margin: 8px;
   border: 1px solid black;
   height: 150px;
   width: 200px;
@@ -24,6 +24,7 @@ export const Header = styled.div`
   
   h1 {
     font-size: 16px;
+    margin-bottom: 4px;
   }
   small {
     font-size: 12px;

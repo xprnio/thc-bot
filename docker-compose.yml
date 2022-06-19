@@ -9,3 +9,14 @@ services:
       - "3000:3000"
     environment:
       PORT: 3000
+      POSTGRES_HOST: database
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: trademaker
+      POSTGRES_PASSWORD: trademaker
+      POSTGRES_DB: trademaker
+  database:
+    image: postgres:alpine
+    environment:
+      POSTGRES_USER: trademaker
+      POSTGRES_PASSWORD: trademaker
+      POSTGRES_DB: trademaker
