@@ -1,12 +1,11 @@
 import styled from 'styled-components/macro';
 
 export const Button = styled.button`
-  background-color: #41658A;
-  color: #fff;
-  border: none;
+  background-color: #c1d3ff;
+  border: 1px solid #30304d;
+  color: #30304d;
   border-radius: 10px;
-  font-size: 16px;
+  font-size: 20px;
   padding: 16px 0;
-  min-height: 30px;
   margin: 5px;
 `;

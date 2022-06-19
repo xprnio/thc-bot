@@ -3,24 +3,26 @@ import { ConversationOption } from '../../features/conversation/conversationSlic
 import { Button } from '../Button/Button.styled';
 import InputField from '../InputField/InputField';
 import { OptionGroup } from '../OptionGroup/OptionGroup';
-import * as Styled from './ConversationControls.styled'
+import * as Styled from './ConversationControls.styled';
 
 type Controls = {
   type: 'information' | 'prompt' | 'options'
   visible: boolean
   onSubmit: (response: string | null) => any;
   options?: ConversationOption[]
+  buttonText?: string;
 }
 
-const ConversationControls: React.FC<Controls> = ({type, visible, onSubmit, options}) => {
+const ConversationControls: React.FC<Controls>
+  = ({ type, visible, onSubmit, options, buttonText }) => {
   if (!visible) return null;
-  switch(type) {
+  switch (type) {
     case 'information': {
       return (
         <Button onClick={() => onSubmit(null)}>
-          Next
+          {buttonText}
         </Button>
-      )
+      );
     }
     case 'prompt': {
       return (
@@ -33,12 +35,12 @@ const ConversationControls: React.FC<Controls> = ({type, visible, onSubmit, opti
       if (!options) return null;
       return (
         <OptionGroup options={options} onSubmit={onSubmit} />
-      )
+      );
     }
     default: {
-      return null
+      return null;
     }
   }
-  
+
 };
 export default ConversationControls;

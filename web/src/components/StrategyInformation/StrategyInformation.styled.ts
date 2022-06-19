@@ -5,7 +5,9 @@ export const Container = styled.div`
   flex-direction: column;
   padding: 16px 12px;
   margin: 8px;
-  background-color: rgba(240, 192, 0, 0.5);
+  background-color: rgba(65, 101, 138, .4);
+  border: 1px solid #303030;
+  color: #303030;
   border-radius: 8px;
 `;
 export const Row = styled.div`

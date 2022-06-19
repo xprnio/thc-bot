@@ -33,6 +33,7 @@ const MainView = () => {
           type={conversation.type}
           onSubmit={handleSubmit}
           visible={true}
+          buttonText={isLast ? 'Complete' : 'Continue'}
         />
       )}
     </Styled.Container>
