@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../app/hooks';
 import ConversationControls from '../../components/ConversationControls/ConversationControls';
 import MessageGroup from '../../components/MessageGroup/MessageGroup';
@@ -7,15 +8,21 @@ import useConversation from '../../hooks/useConversation';
 import * as Styled from './MainView.styled';
 
 const MainView = () => {
-  const { conversation, messages, allowInput, isTyping } = useConversation();
+  const navigate = useNavigate();
+  const { conversation, messages, allowInput, isTyping, isLast } = useConversation();
   const dispatch = useAppDispatch();
   const handleSubmit = useCallback((value: string | null) => {
+    if (isLast) {
+      navigate('/dashboard');
+      return;
+    }
+
     dispatch(getConversation({
       username: 'George',
       type: 'POST',
       payload: { value },
     }));
-  }, [dispatch]);
+  }, [isLast, navigate, dispatch]);
 
   return (
     <Styled.Container>

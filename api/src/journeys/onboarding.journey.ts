@@ -63,6 +63,7 @@ const OnboardingJourney = (): JourneyGroup => {
           'Thank you for the info',
           'I will now look into my collection of libraries and try to find the best fit for you',
         ],
+        isLast: true,
       },
     ],
   };

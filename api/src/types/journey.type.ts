@@ -34,4 +34,5 @@ export type Journey = {
   options?: JourneyOption[];
   handleResponse?: JourneyHandler;
   next?: JourneyKey;
+  isLast?: boolean;
 };

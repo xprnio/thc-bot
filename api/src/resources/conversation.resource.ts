@@ -7,21 +7,21 @@ export abstract class ConversationResource {
     public readonly key: string,
     public readonly content: string[],
     public readonly response: string | null,
-    public readonly is_last: boolean,
+    public readonly is_last: boolean = false,
   ) {}
 
-  static from({ journey, response }: UserJourney, isLast = false): ConversationResource {
+  static from({ journey, response }: UserJourney): ConversationResource {
     switch (journey.type) {
       case JourneyType.Information: {
-        return new ConversationInformationResource(journey.key, journey.content, isLast);
+        return new ConversationInformationResource(journey.key, journey.content, journey.isLast);
       }
       case JourneyType.Prompt: {
-        return new ConversationPromptResource(journey.key, journey.content, response, isLast, {
+        return new ConversationPromptResource(journey.key, journey.content, response, journey.isLast, {
           pattern: String(journey.pattern),
         });
       }
       case JourneyType.Options: {
-        return new ConversationOptionsResource(journey.key, journey.content, response, isLast, {
+        return new ConversationOptionsResource(journey.key, journey.content, response, journey.isLast, {
           options: journey.options,
         });
       }

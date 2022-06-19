@@ -42,11 +42,6 @@ export class JourneyService {
     return this.journeys.get(current);
   }
 
-  isLastStep(journeyKey: JourneyKey): boolean {
-    const index = JourneyService.Journeys.findIndex((journey) => journey.key === journeyKey);
-    return index === JourneyService.Journeys.length - 1;
-  }
-
   getUserJourneys(userKey: UserKey): UserJourney[] {
     if (!this.users.has(userKey)) {
       this.users.set(userKey, {

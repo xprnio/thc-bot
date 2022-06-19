@@ -16,14 +16,14 @@ const mapToState = (
         key: `${messageKey(index)}.typing`,
         data: { key: messageKey(index) },
         onEnter: () => {
-          onTyping(index)
+          onTyping(index);
         },
       },
       {
         key: messageKey(index),
         data: { key: messageKey(index), message },
         onEnter: () => {
-          onSend(index)
+          onSend(index);
         },
       },
     ];
@@ -34,8 +34,8 @@ function useConversation() {
   const machine = useStateMachine();
   const { states, currentState, nextState, next, setStates } = machine;
 
-  const data = useAppSelector(selectData)
-  const dispatch = useAppDispatch()
+  const data = useAppSelector(selectData);
+  const dispatch = useAppDispatch();
   const [messages, setMessages] = useState<string[]>([]);
   const [visible, setVisible] = useState(0);
   const [typing, setTyping] = useState(false);
@@ -51,7 +51,7 @@ function useConversation() {
     dispatch(getConversation({
       username: 'George',
       type: 'GET',
-    }))
+    }));
   }, [dispatch]);
 
   useEffect(() => {
@@ -81,7 +81,7 @@ function useConversation() {
     currentState,
     allowInput: useMemo(
       () => !typing && !nextState,
-      [typing, nextState]
+      [typing, nextState],
     ),
     machine,
     messages: useMemo(
@@ -92,7 +92,11 @@ function useConversation() {
     isComplete: useMemo(
       () => visible === messages.length,
       [messages, visible],
-    )
+    ),
+    isLast: useMemo(() => {
+      if (!data) return false;
+      return data.is_last;
+    }, [data]),
   };
 }
 

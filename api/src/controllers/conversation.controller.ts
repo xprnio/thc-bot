@@ -16,7 +16,7 @@ export class ConversationController {
       return this.getCurrentConversation(username);
     }
 
-    return ConversationResource.from({ journey }, this.journeys.isLastStep(journey.key));
+    return ConversationResource.from({ journey });
   }
 
   @Get(':username/history')
@@ -24,9 +24,7 @@ export class ConversationController {
     const journeys = this.journeys.getUserJourneys(username);
 
     if (!journeys) return [];
-    return journeys.map((journey) => {
-      return ConversationResource.from(journey, false);
-    });
+    return journeys.map(ConversationResource.from);
   }
 
   @Post(':username')

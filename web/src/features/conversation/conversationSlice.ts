@@ -3,12 +3,14 @@ import { RootState } from '../../app/store';
 import { fetchConversation } from './conversationAPI';
 
 export type Conversation = {
-  key: string,
-  type: 'information' | 'prompt' | 'options'
-  content: string[]
-  pattern?: string
-  options?: ConversationOption[]
+  key: string;
+  type: 'information' | 'prompt' | 'options';
+  content: string[];
+  pattern?: string;
+  options?: ConversationOption[];
+  is_last: boolean;
 };
+
 export interface ConversationState {
   data?: Conversation;
   status: 'idle' | 'loading' | 'failed';
@@ -50,7 +52,7 @@ export const conversationSlice = createSlice({
       return {
         ...state,
         status: 'loading',
-      }
+      };
     });
     builder.addCase(getConversation.fulfilled, (state, action) => {
       return {
@@ -63,11 +65,11 @@ export const conversationSlice = createSlice({
       return {
         ...state,
         status: 'failed',
-      }
+      };
     });
   },
 });
 
-export const selectData = (state: RootState) => state.conversation.data
+export const selectData = (state: RootState) => state.conversation.data;
 
 export default conversationSlice.reducer;
