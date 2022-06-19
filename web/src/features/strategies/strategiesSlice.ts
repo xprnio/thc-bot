@@ -6,7 +6,7 @@ export interface Strategy {
     id: string,
     name: string,
     description: number,
-    risk_level: string,
+    risk_level: 'low' | 'medium' | 'high',
     user_rating: number,
     average_profit: number,
 }
