@@ -2,9 +2,8 @@ import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import { NavItem, NavItems } from "./Navigation.Styled";
 import { Icon } from 'react-icons-kit'
-import { home } from 'react-icons-kit/icomoon/home'
-import { bubbles } from 'react-icons-kit/icomoon/bubbles'
-
+import {grid_1} from 'react-icons-kit/ikons/grid_1'
+import {statsDots} from 'react-icons-kit/icomoon/statsDots' 
 
 
 const Navigation: FC = () => {
@@ -16,14 +15,11 @@ const Navigation: FC = () => {
 
     return (
         <NavItems>
-            <NavItem onClick={() => changeRoute('/')}>
-                <Icon size={24} icon={bubbles}></Icon>
-            </NavItem>
             <NavItem onClick={() => changeRoute('/dashboard')}>
-                <Icon size={24}  icon={home}></Icon>
+                <Icon size={24}  icon={grid_1}></Icon>
             </NavItem>
-            <NavItem onClick={() => changeRoute('/dashboard')}>
-                <Icon size={24}  icon={home}></Icon>
+            <NavItem onClick={() => changeRoute('/strategies')}>
+                <Icon size={24}  icon={statsDots}></Icon>
             </NavItem>
         </NavItems>
     )
