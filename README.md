@@ -1,1 +1,1 @@
-# The Honest Coders' Bot
+# Trade Maker by The Honest Coders
