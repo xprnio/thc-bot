@@ -33,7 +33,7 @@ function useStateMachine<T>(initialStates: MachineState<T>[] = []) {
 
   return {
     states, setStates,
-    currentState,
+    current, currentState,
     nextState,
     jump: useCallback((key: string) => {
       const index = states.findIndex(
@@ -43,13 +43,9 @@ function useStateMachine<T>(initialStates: MachineState<T>[] = []) {
 
       setCurrent(index);
     }, [states, setCurrent]),
-    back: useCallback(() => {
-      if (current <= 0) return;
-      setCurrent(current - 1);
-    }, [current, setCurrent]),
     next: useCallback(() => {
       if (current === states.length - 1) return;
-      setCurrent(current + 1);
+      setCurrent(current => current + 1);
     }, [states, current, setCurrent]),
   };
 }
